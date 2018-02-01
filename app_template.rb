@@ -47,12 +47,15 @@ APPLICATION_CONFIG
 
 gem "sorcery"
 run "bundle install"
-run "rails generate sorcery:install remember_me reset_password"
-generate :scaffold, "email:string crypted_password:string salt:string --migration false"
+run "rails generate sorcery:install remember_me reset_password user_activation"
+generate :scaffold, "User email:string crypted_password:string salt:string --migration false"
 generate :controller, "UserSessions new create destroy"
+generate :controller, "PasswordResets create edit update"
+generate :mailer, "UserMailer reset_password_email"
 %w(
   app/controllers/users_controller.rb
   app/controllers/user_sessions_controller.rb
+  app/controllers/password_resets_controller.rb
   app/models/user.rb
   app/views/layouts/application.html.erb
   app/views/users/_form.html.erb
@@ -60,6 +63,13 @@ generate :controller, "UserSessions new create destroy"
   app/views/users/index.html.erb
   app/views/users/new.html.erb
   app/views/users/show.html.erb
+  app/views/user_sessions/_form.html.erb
+  app/views/user_sessions/new.html.erb
+  app/views/user_sessions/_forgot_password_form.html.erb
+  app/views/password_resets/edit.html.erb
+  app/views/user_mailer/reset_password_email.text.erb
+  app/mailers/user_mailer.rb
+  config/initializers/sorcery.rb
 ).each do |path|
   run "rm #{path}"
   get "#{@repo_url}/#{path}", path
