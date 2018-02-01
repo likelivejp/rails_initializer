@@ -6,6 +6,33 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 
 あとAPI専用のテンプレートが欲しくなったらブランチ生やすか、別のリポジトリ作るなどする。
 
+## Template content
+
+### Main
+
+- Rails 5.1.4
+- vue.js
+
+### Gems
+
+- dotenv-rails
+- i18n-js
+- rack-dev-mark(Initialized)
+- foreman
+- sorcery(Initialized)
+  - Resister
+  - Activate
+  - RememberMe
+  - ForgotPassword
+- faker
+- gimei
+- pry
+- annotate
+- brakeman
+- webmock
+- vcr
+- letter_opener(Initialized)
+
 ## Usage
 
 ```
