@@ -1,10 +1,6 @@
 @repo_url = "https://raw.github.com/likelivejp/rails_initializer/master"
 @app_name = app_name
 
-yes? "Would you init rbenv gemset?" do
-  run "rbenv gemset init"
-end
-
 yes? "Would you init rbenv local?" do
   run "rbenv local #{RUBY_VERSION}"
 end
