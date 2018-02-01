@@ -84,7 +84,7 @@ generate :mailer, "UserMailer reset_password_email"
 end
 
 after_bundle do
-  run "curl https://www.gitignore.io/api/macos%2Crails > .gitignore"
+  run "curl https://www.gitignore.io/api/node%2Cmacos%2Crails > .gitignore"
   run "guard init minitest"
   rake "db:create"
   rake "db:migrate"
