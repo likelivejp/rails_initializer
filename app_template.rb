@@ -38,6 +38,8 @@ gem_group :development, :test do
   gem "vcr"
 end
 
+run "bundle install"
+
 after_bundle do
   run "curl https://www.gitignore.io/api/macos%2Crails > .gitignore"
   run "guard init minitest"
