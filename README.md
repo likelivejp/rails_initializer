@@ -9,5 +9,6 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 ## Usage
 
 ```
-$ rails new YOUR_APP_NAME -B -d postgresql --webpack=vue -m https://raw.github.com/likelivejp/rails_initializer/master/app_template.rb
+$ mkdir YOUR_APP_NAME && cd $_
+$ rails new . -B -d postgresql --webpack=vue -m https://raw.github.com/likelivejp/rails_initializer/master/app_template.rb
 ```
