@@ -11,6 +11,7 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 ### Main
 
 - Rails 5.1.4
+- Postgresql
 - vue.js
 
 ### Gems
