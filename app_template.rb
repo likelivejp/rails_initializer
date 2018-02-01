@@ -14,6 +14,8 @@ gem "i18n-js"
 # 今開発環境だよってわかりやすく表示
 gem "rack-dev-mark"
 
+# 開発用のメールを受信、ブラウザで表示してくれる
+
 # webpackのコンパイルを開発時に自動化
 gem "foreman"
 get "#{@repo_url}/Procfile", "Procfile"
@@ -25,14 +27,20 @@ gem_group :development, :test do
   gem "pry"
   gem "annotate"
   gem "brakeman", require: false
-  gem "letter_opener_web"
   gem "webmock"
   gem "vcr"
+  gem "letter_opener"
 end
 
 run "bundle install"
 
+environment 'config.rack_dev_mark.enable = true', env: 'development'
+environment 'config.action_mailer.delivery_method = :letter_opener_web', env: 'development'
+
 application <<-APPLICATION_CONFIG
+config.i18n.default_locale = :ja
+config.time_zone = 'Tokyo'
+config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 config.generators do |g|
   g.stylesheets false
   g.javascripts false
@@ -67,6 +75,7 @@ generate :mailer, "UserMailer reset_password_email"
   app/views/user_mailer/reset_password_email.text.erb
   app/mailers/user_mailer.rb
   config/initializers/sorcery.rb
+  config/routes.rb
 ).each do |path|
   run "rm #{path}"
   get "#{@repo_url}/#{path}", path
