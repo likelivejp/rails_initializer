@@ -8,9 +8,6 @@ yes? "Would you init rbenv local?" do
   run "rbenv local #{RUBY_VERSION}"
 end
 
-# PostgreSQL
-gem 'pg'
-
 # 環境変数を.envに書くことで使えるようにする
 gem 'dotenv-rails'
 
