@@ -34,10 +34,10 @@ end
 
 run "bundle install"
 
-environment(env: 'development') {
+environment(<<-ENV, env: 'development')
   config.rack_dev_mark.enable = true
   config.action_mailer.delivery_method = :letter_opener_web
-}
+ENV
 
 application <<-APPLICATION_CONFIG
   config.i18n.default_locale = :ja
