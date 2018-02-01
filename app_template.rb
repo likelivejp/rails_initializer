@@ -25,9 +25,6 @@ end
 
 gem_group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.14'
-  gem "chromedriver-helper"
-  gem 'selenium-webdriver'
   gem 'faker'
   gem 'gimei'
   gem 'pry'
