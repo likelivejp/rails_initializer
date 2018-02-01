@@ -47,5 +47,5 @@ after_bundle do
   get "#{@repo_url}/Procfile", "Procfile"
   git :init
   git add: "."
-  git commit: "-a -m rails new"
+  git commit: "-a -m 'rails new'"
 end
