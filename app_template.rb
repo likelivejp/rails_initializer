@@ -1,3 +1,4 @@
+@repo_url = "https://raw.github.com/likelivejp/rails_initializer/master"
 @app_name = app_name
 
 yes? "Would you init rbenv gemset?" do
@@ -40,10 +41,8 @@ end
 after_bundle do
   run "curl https://www.gitignore.io/api/macos%2Crails > .gitignore"
   run "guard init minitest"
-  run "touch Procfile"
-  run "echo 'rails: rails s' >> Procfile"
-  run "echo 'webpack: ./bin/webpack-dev-server' >> Procfile"
   run "rails generate sorcery:install remember_me reset_password" if @sorcery
+  get "#{@repo_url}/Procfile", "Procfile"
   git :init
   git add: "."
   git commit: "-a -m rails new"
