@@ -49,6 +49,7 @@ generate :controller, "UserSessions new create destroy"
 generate :controller, "PasswordResets create edit update"
 generate :mailer, "UserMailer reset_password_email"
 %w(
+  app/controllers/application_controller.rb
   app/controllers/users_controller.rb
   app/controllers/user_sessions_controller.rb
   app/controllers/password_resets_controller.rb
