@@ -34,19 +34,21 @@ end
 
 run "bundle install"
 
-environment 'config.rack_dev_mark.enable = true', env: 'development'
-environment 'config.action_mailer.delivery_method = :letter_opener_web', env: 'development'
+environment(env: 'development') {
+  config.rack_dev_mark.enable = true
+  config.action_mailer.delivery_method = :letter_opener_web
+}
 
 application <<-APPLICATION_CONFIG
-config.i18n.default_locale = :ja
-config.time_zone = 'Tokyo'
-config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
-config.generators do |g|
-  g.stylesheets false
-  g.javascripts false
-  g.helper false
-  g.jbuilder false
-end
+  config.i18n.default_locale = :ja
+  config.time_zone = 'Tokyo'
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+  config.generators do |g|
+    g.stylesheets false
+    g.javascripts false
+    g.helper false
+    g.jbuilder false
+  end
 APPLICATION_CONFIG
 
 gem "sorcery"
