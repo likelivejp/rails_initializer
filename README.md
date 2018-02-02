@@ -6,6 +6,11 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 
 あとAPI専用のテンプレートが欲しくなったらブランチ生やすか、別のリポジトリ作るなどする。
 
+## Dependencies
+
+- ruby
+- rbenv
+
 ## Template content
 
 ### Main
@@ -37,10 +42,8 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 ## Usage
 
 ```
-$ mkdir YOUR_APP_NAME && cd $_ && rbenv gemset init
-$ rails new . -B --database=postgresql --webpack=vue -m https://raw.github.com/likelivejp/rails_initializer/master/initializer.rb
+$ mkdir YOUR_APP_NAME && cd $_ && ruby -e "$(curl -fsSL https://raw.github.com/likelivejp/rails_initializer/master/initializer.sh)"
 ```
-
 ## 参考
 
 - [Rails のアプリケーションテンプレート](https://railsguides.jp/rails_application_templates.html)

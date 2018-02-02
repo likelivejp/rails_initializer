@@ -1,9 +1,7 @@
 @repo_url = "https://raw.github.com/likelivejp/rails_initializer/master"
 @app_name = app_name
 
-# yes? "Would you init rbenv local?" do
-#   run "rbenv local #{RUBY_VERSION}"
-# end
+run "rbenv local #{RUBY_VERSION}"
 
 # 環境変数を.envに書くことで使えるようにする
 gem "dotenv-rails"
