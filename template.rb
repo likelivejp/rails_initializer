@@ -74,7 +74,7 @@ generate :controller, "UserSessions new create destroy"
 generate :mailer, "UserMailer activation_needed_email activation_success_email"
 generate :controller, "PasswordResets create edit update"
 generate :mailer, "UserMailer reset_password_email"
-%w(
+replacement_files = %w(
   app/controllers/application_controller.rb
   app/controllers/users_controller.rb
   app/controllers/user_sessions_controller.rb
@@ -96,9 +96,18 @@ generate :mailer, "UserMailer reset_password_email"
   app/mailers/user_mailer.rb
   config/initializers/sorcery.rb
   config/routes.rb
-).each do |path|
+)
+replacement_files.each do |path|
   run "rm #{path}"
   get "#{@repo_url}/#{path}", path
+end
+remove_files = %w(
+  app/views/user_mailer/activation_needed_email.html.erb
+  app/views/user_mailer/activation_success_email.html.erb
+  app/views/user_mailer/reset_password_email.html.erb
+)
+remove_files.each do |path|
+  run "rm #{path}"
 end
 
 after_bundle do
