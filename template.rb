@@ -18,6 +18,7 @@ gem "rack-dev-mark"
 gem "foreman"
 get "#{@repo_url}/Procfile", "Procfile"
 
+# 開発、テストで必要なgemたち
 gem_group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "faker"
@@ -91,7 +92,7 @@ after_bundle do
   run "guard init minitest"
   rake "db:create"
   rake "db:migrate"
-  ruby "bundle binstubs bundler --force"
+  run "bundle binstubs bundler --force"
   git :init
   git add: "."
   git commit: "-a -m 'rails new'"
