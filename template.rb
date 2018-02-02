@@ -12,22 +12,36 @@ gem "i18n-js"
 # 今開発環境だよってわかりやすく表示
 gem "rack-dev-mark"
 
-# 開発用のメールを受信、ブラウザで表示してくれる
-
-# webpackのコンパイルを開発時に自動化
+# webpackのコンパイルを開発時に自動化する
 gem "foreman"
 get "#{@repo_url}/Procfile", "Procfile"
 
 # 開発、テストで必要なgemたち
 gem_group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+
+  # ダミーデータを簡単につくれる
   gem "faker"
+
+  # 日本語のダミーデータを簡単につくれる
   gem "gimei"
+
+  # デバッグのおとも
   gem "pry"
+
+  # model.rbなどにdbスキーマをコメントで書いてくれる
   gem "annotate"
+
+  # 基本的なセキュリティチェックをする
   gem "brakeman", require: false
+
+  # HTTP通信を差し替える
   gem "webmock"
+
+  # 外部APIダンプを作る
   gem "vcr"
+
+  # 開発用のメールを受信、ブラウザで表示してくれる
   gem "letter_opener"
 end
 

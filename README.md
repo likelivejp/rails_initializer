@@ -4,7 +4,7 @@
 
 rails newする時に普段使うgemとか設定が面倒なので、ApplicationTemplateにまとめておきます。
 
-開発する時に「これ毎回使ってる」と気づいた物があったらapp_template.rbに追加したい。
+開発する時に「これ毎回使ってる」「最初の設定、何回もやって辛い」となったらtemplate.rbに追加しよう。
 
 あとAPI専用のテンプレートが欲しくなったらブランチ生やすか、別のリポジトリ作るなどする。
 
@@ -46,6 +46,9 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 ```
 $ mkdir YOUR_APP_NAME && cd $_ && ruby -e "$(curl -fsSL https://raw.github.com/likelivejp/rails_initializer/master/initializer.sh)"
 ```
+
+あとは`foreman start`ですぐに起動、開発できます🚀
+
 ## 参考
 
 - [Rails のアプリケーションテンプレート](https://railsguides.jp/rails_application_templates.html)
