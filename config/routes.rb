@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root :to => 'users#index'
-  resources :user_sessions
-  resources :password_resets
-  resources :users
+  
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+  resources :user_sessions
+  resources :password_resets
+  resources :users do
+    member do
+      get :activate
+    end
+  end
 end

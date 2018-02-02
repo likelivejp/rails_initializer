@@ -58,6 +58,7 @@ run "bundle install"
 run "rails generate sorcery:install remember_me reset_password user_activation"
 generate :scaffold, "User email:string crypted_password:string salt:string --migration false"
 generate :controller, "UserSessions new create destroy"
+generate :mailer, "UserMailer activation_needed_email activation_success_email"
 generate :controller, "PasswordResets create edit update"
 generate :mailer, "UserMailer reset_password_email"
 %w(
@@ -76,6 +77,8 @@ generate :mailer, "UserMailer reset_password_email"
   app/views/user_sessions/new.html.erb
   app/views/user_sessions/_forgot_password_form.html.erb
   app/views/password_resets/edit.html.erb
+  app/views/user_mailer/activation_needed_email.text.erb
+  app/views/user_mailer/activation_success_email.text.erb
   app/views/user_mailer/reset_password_email.text.erb
   app/mailers/user_mailer.rb
   config/initializers/sorcery.rb
@@ -90,6 +93,7 @@ after_bundle do
   run "guard init minitest"
   rake "db:create"
   rake "db:migrate"
+  ruby "bundle binstubs bundler --force"
   git :init
   git add: "."
   git commit: "-a -m 'rails new'"
