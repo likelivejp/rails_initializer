@@ -42,7 +42,7 @@ gem_group :development, :test do
   gem "vcr"
 
   # 開発用のメールを受信、ブラウザで表示してくれる
-  gem "letter_opener"
+  gem "letter_opener_web"
 end
 
 run "bundle install"
