@@ -38,7 +38,7 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 
 ```
 $ mkdir YOUR_APP_NAME && cd $_ && rbenv gemset init
-$ rails new . -B --database=postgresql --webpack=vue -m https://raw.github.com/likelivejp/rails_initializer/master/app_template.rb
+$ rails new . -B --database=postgresql --webpack=vue -m https://raw.github.com/likelivejp/rails_initializer/master/initializer.rb
 ```
 
 ## 参考
