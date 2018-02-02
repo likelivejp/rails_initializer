@@ -1,5 +1,7 @@
 # Rails initializer
 
+![](https://img.shields.io/badge/Rails-5.1.4-red.svg?style=flat-square)
+
 rails newする時に普段使うgemとか設定が面倒なので、ApplicationTemplateにまとめておきます。
 
 開発する時に「これ毎回使ってる」と気づいた物があったらapp_template.rbに追加したい。
