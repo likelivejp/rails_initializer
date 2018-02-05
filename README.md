@@ -39,7 +39,7 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 - brakeman
 - webmock
 - vcr
-- letter_opener(Initialized)
+- letter_opener_web(Initialized)
 
 ## Usage
 
