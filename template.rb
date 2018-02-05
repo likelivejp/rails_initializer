@@ -122,6 +122,7 @@ replace_test_files = %w(
   test/controllers/users_controller_test.rb
   test/controllers/password_resets_controller_test.rb
   test/controllers/user_sessions_controller_test.rb
+  test/mailers/user_mailer_test.rb
   test/fixtures/users.yml
 )
 replace_test_files.each do |path|
