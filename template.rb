@@ -125,6 +125,7 @@ replace_test_files = %w(
   test/fixtures/users.yml
 )
 replace_test_files.each do |path|
+  run "rm #{path}"
   get "#{@repo_url}/#{path}", path
 end
 
