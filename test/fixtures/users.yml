@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+mario:
+  email: <%= Faker::Internet.email %>
+  salt: <%= salt = "password" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  activation_state: active
+
+wario:
+  email: <%= Faker::Internet.email %>
+  salt: invalid_password
+  crypted_password: incollect_password
+  activation_state: nil

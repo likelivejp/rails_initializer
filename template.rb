@@ -54,6 +54,10 @@ environment(<<-ENV, env: 'development')
   config.action_mailer.delivery_method = :letter_opener_web
 ENV
 
+environment(<<-ENV, env: 'test')
+  config.action_mailer.default_url_options = { host: 'localhost:5000' }
+ENV
+
 application <<-APPLICATION_CONFIG
   config.i18n.default_locale = :ja
   config.time_zone = 'Tokyo'
@@ -66,6 +70,7 @@ application <<-APPLICATION_CONFIG
   end
 APPLICATION_CONFIG
 
+# sorceryの初期設定を全て行う
 gem "sorcery"
 run "bundle install"
 run "rails generate sorcery:install remember_me reset_password user_activation"
@@ -101,6 +106,8 @@ replacement_files.each do |path|
   run "rm #{path}"
   get "#{@repo_url}/#{path}", path
 end
+
+# htmlメールを先に見に行ってしまうのでhtmlを削除
 remove_files = %w(
   app/views/user_mailer/activation_needed_email.html.erb
   app/views/user_mailer/activation_success_email.html.erb
@@ -108,6 +115,17 @@ remove_files = %w(
 )
 remove_files.each do |path|
   run "rm #{path}"
+end
+
+# testファイルの転送
+replace_test_files = %w(
+  test/controllers/users_controller_test.rb
+  test/controllers/password_resets_controller_test.rb
+  test/controllers/user_sessions_controller_test.rb
+  test/fixtures/users.yml
+)
+replace_test_files.each do |path|
+  get "#{@repo_url}/#{path}", path
 end
 
 after_bundle do
