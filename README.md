@@ -44,7 +44,7 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 ## Usage
 
 ```
-$ mkdir YOUR_APP_NAME && cd $_ && yes | ruby -e "$(curl -fsSL https://raw.github.com/likelivejp/rails_initializer/master/initializer.sh)"
+$ mkdir YOUR_APP_NAME && cd $_ && yes | sh -c "$(curl -fsSL https://raw.github.com/likelivejp/rails_initializer/master/initializer.sh)"
 ```
 
 あとは`foreman start`ですぐに起動、開発できます🚀
