@@ -1,6 +1,6 @@
 # Rails initializer
 
-![](https://img.shields.io/badge/Rails-5.1.4-red.svg?style=flat-square)
+![](https://img.shields.io/badge/Rails-5.2.0-red.svg?style=flat-square)
 
 rails newする時に普段使うgemとか設定が面倒なので、ApplicationTemplateにまとめておきます。
 
@@ -17,7 +17,7 @@ rails newする時に普段使うgemとか設定が面倒なので、Application
 
 ### Main
 
-- Rails 5.1.4
+- Rails 5.2.0
 - Postgresql
 - vue.js
 
