@@ -47,7 +47,6 @@ run "bundle install"
 environment(<<-ENV, env: 'development')
 
   # webpackerがここに改行無しで追加してくるのでコメント追加
-  config.rack_dev_mark.enable = true
   config.action_mailer.delivery_method = :letter_opener_web
 ENV
 
