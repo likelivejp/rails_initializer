@@ -11,7 +11,7 @@ gem "i18n-js"
 
 # webpackのコンパイルを開発時に自動化する
 gem "foreman"
-get "#{@repo_url}/Procfile", "Procfile"
+get "#{@repo_url}/Foremanfile", "Foremanfile"
 
 # 開発、テストで必要なgemたち
 gem_group :development, :test do
