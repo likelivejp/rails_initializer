@@ -9,9 +9,6 @@ gem "dotenv-rails"
 # javascriptでi18n(多言語化)する時に
 gem "i18n-js"
 
-# 今開発環境だよってわかりやすく表示
-gem "rack-dev-mark"
-
 # webpackのコンパイルを開発時に自動化する
 gem "foreman"
 get "#{@repo_url}/Procfile", "Procfile"
